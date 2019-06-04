@@ -14,7 +14,7 @@
 
 // pprof is a tool for collection, manipulation and visualization
 // of performance profiles.
-package main
+package pprof
 
 import (
 	"fmt"
@@ -26,8 +26,8 @@ import (
 	"github.com/google/pprof/driver"
 )
 
-func main() {
-	if err := driver.PProf(&driver.Options{UI: newUI()}); err != nil {
+func pprofMain() {
+	if err := driver.PProf(&driver.Options{UI: NewUI()}); err != nil {
 		fmt.Fprintf(os.Stderr, "pprof: %v\n", err)
 		os.Exit(2)
 	}
@@ -42,7 +42,7 @@ type readlineUI struct {
 	rl *readline.Instance
 }
 
-func newUI() driver.UI {
+func NewUI() driver.UI {
 	rl, err := readline.New("")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "readline: %v", err)

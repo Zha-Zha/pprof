@@ -24,9 +24,9 @@ echo "mode: $MODE" > coverage.txt
 PKG=$(go list ./...)
 
 staticcheck -ignore '
-github.com/google/pprof/internal/binutils/binutils_test.go:SA6004
-github.com/google/pprof/internal/driver/svg.go:SA6004
-github.com/google/pprof/internal/report/source_test.go:SA6004
+github.com/google/pprof/internalPackage/binutils/binutils_test.go:SA6004
+github.com/google/pprof/internalPackage/driver/svg.go:SA6004
+github.com/google/pprof/internalPackage/report/source_test.go:SA6004
 github.com/google/pprof/profile/filter_test.go:SA6004
 ' $PKG
 unused $PKG
